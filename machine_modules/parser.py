@@ -1,25 +1,26 @@
 from .state import State
+from config import Config
 
 
 class Parser:
     """
-    description
+    Класс преобразует исходные данные для эмулятора
     """
 
     @staticmethod
     def parse_states(dict_states: dict) -> list[State]:
         """
-        description
+        Преобразует словарь состояний в удобную для машины форму
         """
 
         states = []
         alphabet = [i for i in dict_states.keys()]
-        state_num = 1
 
-        for key in dict_states.keys():
-            rules = dict_states[key]
-            state = State(state_num, alphabet, rules)
-            states.append(state)
-            state_num += 1
+        for state_num in range(len(dict_states[Config.empty_symbol])):
+            rules = {}
+            for symbol in alphabet:
+                rules[symbol] = dict_states[symbol][state_num]
+
+            states.append(State(state_num + 1, alphabet, rules))
 
         return states

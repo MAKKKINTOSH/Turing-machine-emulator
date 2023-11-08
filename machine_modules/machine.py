@@ -1,10 +1,13 @@
+from .parser import Parser
+
 class Machine:
     """
-    description
+    Машина Тьюринга
     """
 
     def __init__(self, alphabet: list, states: dict):
-        pass
+        self.alphabet = alphabet,
+        self.states = Parser.parse_states(states)
 
     def run(self, input: str) -> str:
         pass
