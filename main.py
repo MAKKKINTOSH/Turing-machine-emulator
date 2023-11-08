@@ -1,16 +1,22 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from machine_modules.machine import Machine
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def main():
+    word = input()
+
+    # dev version input
+    alphabet = ['a', 'b']
+    states = {
+        'a': ["2aR", "2aR", "5aR", "4aL", "5 R", "0aN"],
+        'b': ["3 R", "2aR", "5bR", "4bL", "5 R", "0bN"],
+        ' ': ["0 N", "4 L", "-", "0 R", "6 N", "6 L"]
+    }
+    # dev version input
+
+    machine = Machine(alphabet, states)
+    result = machine.run(word)
+    print(result)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if __name__ == "__main__":
+    main()
