@@ -4,3 +4,4 @@ class Config:
     """
 
     empty_symbol = ' '
+    start_index = 0
